@@ -1,19 +1,27 @@
+<!-- File: views/product_views.xml -->
 <odoo>
     <record id="product_template_form_view_kit_measurements" model="ir.ui.view">
         <field name="name">product.template.form.kit.measurements</field>
         <field name="model">product.template</field>
         <field name="inherit_id" ref="product.product_template_form_view"/>
         <field name="arch" type="xml">
+            <!-- Fields in inventory section -->
             <xpath expr="//page[@name='inventory']//group[@name='inventory']" position="inside">
                 <field name="is_kit" invisible="1"/>
                 <field name="update_measurements" groups="base.group_no_one"/>
                 <field name="calculated_weight" groups="base.group_no_one"/>
                 <field name="calculated_volume" groups="base.group_no_one"/>
-                <button name="action_update_kit_measurements" 
-                        string="Update From Kit Components" 
-                        type="object" 
-                        class="oe_highlight" 
-                        groups="base.group_user"/>
+            </xpath>
+            
+            <!-- Add a completely new section for the button -->
+            <xpath expr="//notebook" position="after">
+                <div groups="base.group_user" class="oe_button_box" style="margin-top: 10px;">
+                    <button name="action_update_kit_measurements" 
+                            string="Update From Kit Components" 
+                            type="object" 
+                            icon="fa-refresh"
+                            class="btn-sm btn-secondary"/>
+                </div>
             </xpath>
         </field>
     </record>
