@@ -6,14 +6,14 @@
         <field name="arch" type="xml">
             <xpath expr="//page[@name='inventory']//group[@name='inventory']" position="inside">
                 <field name="is_kit" invisible="1"/>
-                <field name="update_measurements" attrs="{'invisible': [('is_kit', '=', False)]}"/>
-                <field name="calculated_weight" attrs="{'invisible': [('is_kit', '=', False)]}"/>
-                <field name="calculated_volume" attrs="{'invisible': [('is_kit', '=', False)]}"/>
+                <field name="update_measurements" groups="base.group_no_one"/>
+                <field name="calculated_weight" groups="base.group_no_one"/>
+                <field name="calculated_volume" groups="base.group_no_one"/>
                 <button name="action_update_kit_measurements" 
                         string="Update From Kit Components" 
                         type="object" 
                         class="oe_highlight" 
-                        attrs="{'invisible': [('is_kit', '=', False)]}"/>
+                        groups="base.group_user"/>
             </xpath>
         </field>
     </record>
