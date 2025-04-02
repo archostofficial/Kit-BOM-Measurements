@@ -7,7 +7,7 @@
         of products with kit BOMs (phantom BOMs) based on their components.
     """,
     'category': 'Manufacturing',
-    'author': 'Custom',
+    'author': 'ARC HOST',
     'depends': ['mrp', 'stock'],
     'data': [
         'views/product_views.xml',
