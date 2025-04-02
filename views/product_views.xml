@@ -1,0 +1,20 @@
+<odoo>
+    <record id="product_template_form_view_kit_measurements" model="ir.ui.view">
+        <field name="name">product.template.form.kit.measurements</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='inventory']//group[@name='inventory']" position="inside">
+                <field name="is_kit" invisible="1"/>
+                <field name="update_measurements" attrs="{'invisible': [('is_kit', '=', False)]}"/>
+                <field name="calculated_weight" attrs="{'invisible': [('is_kit', '=', False)]}"/>
+                <field name="calculated_volume" attrs="{'invisible': [('is_kit', '=', False)]}"/>
+                <button name="action_update_kit_measurements" 
+                        string="Update From Kit Components" 
+                        type="object" 
+                        class="oe_highlight" 
+                        attrs="{'invisible': [('is_kit', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
